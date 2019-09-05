@@ -142,6 +142,8 @@ public class CustomView extends View {
         resultForArea = rs.nextInt(highs-lows) + lows;
 
         invalidate();
+
+
     }
     public void doStart() {
         int mDuration = 3000;
