@@ -1,4 +1,4 @@
-package com.bakirtansirri.customview.view;
+package com.bakirtansirri.customview.custom;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
@@ -11,6 +11,7 @@ import android.graphics.PorterDuff;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
+import android.webkit.ValueCallback;
 
 import androidx.annotation.Nullable;
 
@@ -145,15 +146,7 @@ public class CustomView extends View {
     public void doStart() {
         int mDuration = 3000;
         vm.setDuration(mDuration);
-        vm.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                changeLocation();
-                changeArea();
-                swapColor();
-                invalidate();
-            }
-        });
+        vm.addUpdateListener(valueAnimatorListener);
         vm.setRepeatCount(5);
         vm.start();
     }
@@ -169,4 +162,14 @@ public class CustomView extends View {
         shape = (byte) (rs.nextInt(highs-lows) + lows);
         invalidate();
     }
+
+    private ValueAnimator.AnimatorUpdateListener valueAnimatorListener = new ValueAnimator.AnimatorUpdateListener() {
+        @Override
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            changeLocation();
+            changeArea();
+            swapColor();
+            invalidate();
+        }
+    };
 }
