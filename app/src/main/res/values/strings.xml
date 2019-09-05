@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CustomViewExample</string>
+    <string name="get_Start">Start</string>
+    <string name="get_Change_Area">Change Area</string>
+    <string name="get_Change_Location">Change Location</string>
+    <string name="get_Swap_Color">Swap Color</string>
+    <string name="get_Stop">Stop</string>
+    <string name="get_ChangeShape">Change Shape</string>
+    <string name="get_TouchDraw">Touch Draw</string>
+</resources>
